@@ -6,14 +6,14 @@ interface PhotoGalleryProps {
   onComplete: () => void;
 }
 
-// Placeholder photos - user will upload later
+// Actual photos
 const photos = [
-  { id: 1, caption: "My pretty girl 💗", placeholder: "🌸" },
-  { id: 2, caption: "My universe 🌍", placeholder: "🌷" },
-  { id: 3, caption: "My cutieee 🥰", placeholder: "🌹" },
-  { id: 4, caption: "Her smile >>>> everything 💫", placeholder: "🌺" },
-  { id: 5, caption: "My sunshine ☀️", placeholder: "🌻" },
-  { id: 6, caption: "Forever mine 💝", placeholder: "🪻" },
+  { id: 1, caption: "My BABYYY 💗", src: "/images/photo1.jpeg" },
+  { id: 2, caption: "My pretty girl 🌍", src: "/images/photo2.jpeg" },
+  { id: 3, caption: "My cutieee 🥰", src: "/images/photo3.jpeg" },
+  { id: 4, caption: "ahhh thissss >>>> everything 💫", src: "/images/photo4.jpeg" },
+  { id: 5, caption: "wowwww cutiee ☀️", src: "/images/photo5.jpeg" },
+  { id: 6, caption: "Forever mine 💝", src: "/images/photo6.jpeg" },
 ];
 
 const PhotoGallery = ({ onComplete }: PhotoGalleryProps) => {
@@ -55,19 +55,16 @@ const PhotoGallery = ({ onComplete }: PhotoGalleryProps) => {
             transition={{ duration: 0.5, ease: "easeInOut" }}
             className="romantic-card p-6 md:p-8"
           >
-            {/* Photo placeholder - replace with actual images */}
+            {/* ACTUAL IMAGE HERE */}
             <div className="aspect-[4/5] bg-secondary rounded-xl flex items-center justify-center mb-6 overflow-hidden relative">
-              <div className="text-8xl">{photos[currentIndex].placeholder}</div>
-              
+              <img
+                src={photos[currentIndex].src}
+                alt={`Photo ${currentIndex + 1}`}
+                className="w-full h-full object-cover"
+              />
+
               {/* Decorative frame */}
               <div className="absolute inset-0 border-4 border-primary/20 rounded-xl pointer-events-none" />
-              
-              {/* Photo upload hint */}
-              <div className="absolute bottom-4 left-4 right-4 bg-card/90 backdrop-blur-sm rounded-lg p-3 text-center">
-                <p className="text-xs text-muted-foreground font-body">
-                  📷 Photo {currentIndex + 1} - Upload your image here
-                </p>
-              </div>
             </div>
 
             {/* Caption */}
